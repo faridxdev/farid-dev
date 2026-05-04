@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 
 class SiteSettings(models.Model):
     """Paramètres globaux du portfolio (singleton)"""
@@ -16,7 +17,7 @@ class SiteSettings(models.Model):
     github = models.URLField(blank=True)
     linkedin = models.URLField(blank=True)
     twitter = models.URLField(blank=True)
-    cv_file = models.FileField("CV (PDF)", upload_to='cv/', blank=True)
+    cv_file = models.FileField("CV (PDF)", upload_to='cv/', blank=True, storage=RawMediaCloudinaryStorage())
     is_available = models.BooleanField("Disponible", default=True)
     years_experience = models.PositiveIntegerField(default=2)
     projects_count = models.PositiveIntegerField(default=10)

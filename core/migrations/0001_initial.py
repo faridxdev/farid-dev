@@ -2,6 +2,7 @@
 import os
 from django.db import migrations, models
 from django.contrib.auth.hashers import make_password
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 
 def create_initial_data(apps, schema_editor):
     SiteSettings = apps.get_model('core', 'SiteSettings')
@@ -165,7 +166,7 @@ class Migration(migrations.Migration):
                 ('github', models.URLField(blank=True)),
                 ('linkedin', models.URLField(blank=True)),
                 ('twitter', models.URLField(blank=True)),
-                ('cv_file', models.FileField(blank=True, upload_to='cv/', verbose_name='CV (PDF)')),
+                ('cv_file', models.FileField(blank=True, storage=RawMediaCloudinaryStorage(), upload_to='cv/', verbose_name='CV (PDF)')),
                 ('is_available', models.BooleanField(default=True, verbose_name='Disponible')),
                 ('years_experience', models.PositiveIntegerField(default=2)),
                 ('projects_count', models.PositiveIntegerField(default=10)),
