@@ -1,0 +1,471 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<section id="hero">
+    <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow2"></div>
+    </div>
+    <div class="hero-inner">
+        <div>
+            <div class="hero-badge">Python · Django · {{ site.title|default:"Backend Developer" }}</div>
+            <h1 class="hero-title">
+                {{ site.name|upper|default:"AGBOKA FARID" }}<br>
+                <span class="line2">Développeur Backend</span><br>
+                <span class="line3">Python Enthusiast</span>
+            </h1>
+            <p class="hero-sub">Développeur backend passionné par Python et Django, spécialisé en conception d'APIs robustes, architecture logicielle et bases de données relationnelles. Je construis des solutions fiables et orientées métier.</p>
+            <div class="hero-btns">
+                <a class="btn-primary" href="#projects">📄 Voir mes projets</a>
+                <a class="btn-outline" href="{% if site.cv_file %}{{ site.cv_file.url }}{% else %}#{% endif %}">⬇ Télécharger CV</a>
+                <a class="btn-outline" href="{% if site.whatsapp %}https://wa.me/{{ site.whatsapp }}{% else %}#contact{% endif %}" {% if site.whatsapp %}target="_blank"{% endif %}>💬 WhatsApp</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card"><span class="stat-num" id="c1">0</span><div class="stat-lbl">Projets réalisés</div></div>
+                <div class="stat-card"><span class="stat-num" id="c2">0</span><div class="stat-lbl">Technologies</div></div>
+                <div class="stat-card"><span class="stat-num" id="c3">0</span><div class="stat-lbl">Années de pratique</div></div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+                    <span class="terminal-title">faridxdev.py</span>
+                </div>
+                <div class="terminal-body">
+                    <div><span class="t-c"># 🐍 Python First Developer</span></div>
+                    <div><span class="t-k">class</span> <span class="t-f">AgbokaFarid</span>:</div>
+                    <div>&nbsp;&nbsp;<span class="t-k">name</span> = <span class="t-s">"{{ site.name|default:"AGBOKA FARID" }}"</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-k">favorite</span> = <span class="t-s">"Python 🐍"</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-k">location</span> = <span class="t-s">"Lomé, Togo 🇹🇬"</span></div>
+                    <div>&nbsp;&nbsp;<span class="t-k">stack</span>    = [</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-s">"Django"</span>, <span class="t-s">"DRF"</span>,</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-s">"PostgreSQL"</span>, <span class="t-s">"Laravel"</span>,</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-s">"OpenCV"</span>, <span class="t-s">"DeepFace"</span></div>
+                    <div>&nbsp;&nbsp;]</div>
+                    <div>&nbsp;&nbsp;<span class="t-k">available</span> = <span class="t-v">True</span></div>
+                    <br>
+                    <div>&nbsp;&nbsp;<span class="t-k">def</span> <span class="t-f">build</span>(self, idea):</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-k">return</span> <span class="t-s">"Robust Python solution ✅"</span></div>
+                    <div><span class="cursor"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="section-inner">
+        <div class="section-badge">À propos</div>
+        <h2 class="section-title">Qui suis-je ?</h2>
+        <div class="divider"></div>
+        <div class="about-grid reveal">
+            <div style="text-align:center">
+                <div class="avatar">
+                    {% if site.avatar %}<img src="{{ site.avatar.url }}" alt="{{ site.name }}">{% else %}AF{% endif %}
+                </div>
+                <div class="avatar-status">{% if site.is_available %}Disponible{% else %}Occupé{% endif %}</div>
+            </div>
+            <div>
+                <div class="about-text">
+                    <p>Je m'appelle <strong style="color:var(--python2)">{{ site.name|default:"AGBOKA FARID" }}</strong>, {{ site.bio_short }}</p>
+                    <p>{{ site.bio_long|linebreaksbr }}</p>
+                </div>
+                <div class="py-highlight reveal">
+                    <div class="py-title">🐍 Écosystème Python favori</div>
+                    <div class="py-libs">
+                        <span class="py-lib">Django</span><span class="py-lib">Django REST Framework</span>
+                        <span class="py-lib">OpenCV</span><span class="py-lib">DeepFace</span>
+                        <span class="py-lib">PostgreSQL + psycopg2</span><span class="py-lib">Celery</span>
+                        <span class="py-lib">Pillow</span><span class="py-lib">Render</span>
+                    </div>
+                </div>
+                <div class="about-tags" style="margin-top:1rem">
+                    <span class="tag">🐍 Python First</span>
+                    <span class="tag">🔧 Architecture Backend</span>
+                    <span class="tag">🗄️ Bases de données</span>
+                    <span class="tag">🔌 APIs REST</span>
+                    <span class="tag">🤖 Vision par ordinateur</span>
+                    <span class="tag">🧠 Esprit d'analyse</span>
+                </div>
+                <div class="about-info">
+                    <div class="info-item">
+                        <div class="info-label">Localisation</div>
+                        <div class="info-val">{{ site.location|default:"Zossimé, Lomé — Togo" }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Formation</div>
+                        <div class="info-val">{% if educations %}{{ educations.0.institution }}{% else %}Institut FORMATEC{% endif %}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-val">{{ site.email }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Téléphone</div>
+                        <div class="info-val">{{ site.phone }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Langage favori</div>
+                        <div class="info-val" style="color:var(--python2)">🐍 Python</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Statut</div>
+                        <div class="info-val" style="color:var(--green)">● {% if site.is_available %}Disponible{% else %}Indisponible{% endif %}</div>
+                    </div>
+                </div>
+                <div style="margin-top:1.25rem">
+                    <div class="section-badge" style="margin-bottom:.75rem">Langues</div>
+                    <div class="langs-grid">
+                        <div class="lang-card"><div class="lang-name">🇫🇷 Français</div><div class="lang-level">Courant</div></div>
+                        <div class="lang-card"><div class="lang-name">🇬🇧 Anglais</div><div class="lang-level">Intermédiaire</div></div>
+                        <div class="lang-card"><div class="lang-name">Kotokoli</div><div class="lang-level">Intermédiaire</div></div>
+                        <div class="lang-card"><div class="lang-name">Éwé</div><div class="lang-level">Courant</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="section-inner">
+        <div class="section-badge">Compétences</div>
+        <h2 class="section-title">Stack Technique</h2>
+        <div class="divider"></div>
+        <div class="skills-grid reveal">
+            <div>
+                <div class="skill-group priority">
+                    <h3>🐍 Python / Django — Favori</h3>
+                    {% for skill in skills_groups.priority %}
+                    <div class="skill-item">
+                        <div class="skill-head"><span>{{ skill.name }}</span><span class="skill-pct">{{ skill.percentage }}%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-w="{{ skill.percentage }}" style="background: {{ skill.color }}"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="skill-group">
+                    <h3>🐘 PHP / Laravel</h3>
+                    {% for skill in skills_groups.php_laravel %}
+                    <div class="skill-item">
+                        <div class="skill-head"><span>{{ skill.name }}</span><span class="skill-pct">{{ skill.percentage }}%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-w="{{ skill.percentage }}" style="background:linear-gradient(90deg,#f59e0b,#ef4444)"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="skill-group">
+                    <h3>☕ Java</h3>
+                    {% for skill in skills_groups.java %}
+                    <div class="skill-item">
+                        <div class="skill-head"><span>{{ skill.name }}</span><span class="skill-pct">{{ skill.percentage }}%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-w="{{ skill.percentage }}" style="background:linear-gradient(90deg,#ef4444,#f97316)"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                <div class="skill-group">
+                    <h3>🗄️ Bases de données</h3>
+                    {% for skill in skills_groups.database %}
+                    <div class="skill-item">
+                        <div class="skill-head"><span>{{ skill.name }}</span><span class="skill-pct">{{ skill.percentage }}%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-w="{{ skill.percentage }}" style="background:linear-gradient(90deg,#3b82f6,#10b981)"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="skill-group">
+                    <h3>🌐 Frontend & Outils</h3>
+                    {% for skill in skills_groups.frontend_tools %}
+                    <div class="skill-item">
+                        <div class="skill-head"><span>{{ skill.name }}</span><span class="skill-pct">{{ skill.percentage }}%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-w="{{ skill.percentage }}" style="background:linear-gradient(90deg,#8b5cf6,#a855f7)"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top:2.5rem">
+            <div class="section-badge" style="margin-bottom:1rem">Toutes les technologies</div>
+            <div class="tech-badges reveal">
+                {% for tech in all_technologies %}
+                <div class="badge {% if tech.slug == 'python' or tech.slug == 'django' %}featured{% endif %}">
+                    <div class="badge-dot" style="background:{{ tech.color }}"></div>
+                    {{ tech.name }}{% if tech.slug == 'python' %} 🐍{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="section-inner">
+        <div class="section-badge">Projets</div>
+        <h2 class="section-title">Réalisations Techniques</h2>
+        <p style="color:var(--text2);font-size:.875rem;margin-bottom:2rem">Tous les projets sont disponibles sur <strong style="color:var(--accent2)">GitHub (faridxdev)</strong>. <strong style="color:var(--green)">KATAUPARFUM</strong> est hébergé en production sur Render.</p>
+        <div class="projects-grid">
+            {% for project in featured_projects %}
+            <div class="project-card reveal">
+                <div class="project-header">
+                    <div class="project-icon" style="background: 
+                        {% if project.icon == '🛍️' %}rgba(245,158,11,.15)
+                        {% elif project.icon == '🤖' %}rgba(139,92,246,.15)
+                        {% elif project.icon == '🔌' %}rgba(16,185,129,.15)
+                        {% elif project.icon == '🏫' %}rgba(6,182,212,.15)
+                        {% elif project.icon == '💰' %}rgba(245,158,11,.12)
+                        {% else %}rgba(59,130,246,.15){% endif %}">
+                        {{ project.icon }}
+                    </div>
+                    <div class="proj-badges">
+                        {% if project.architecture %}
+                        <div class="proj-python">
+                            {% if "Django" in project.architecture or "Python" in project.architecture %}🐍{% elif "Laravel" in project.architecture %}🐘{% endif %}
+                            {{ project.architecture }}
+                        </div>
+                        {% endif %}
+                        {% if project.demo_url %}
+                            <div class="proj-deployed">🟢 Live</div>
+                        {% endif %}
+                    </div>
+                    <div class="project-type">{{ project.get_category_display }}</div>
+                    <div class="project-title">{{ project.title }}</div>
+                    <div class="project-desc">{{ project.description_short }}</div>
+                </div>
+                <div class="project-body">
+                    <div class="project-stack">
+                        {% for tech in project.technologies.all %}
+                        <span class="stack-tag {% if tech.name == 'Python' or tech.name == 'Django' or tech.name == 'Django REST' or tech.name == 'OpenCV' or tech.name == 'DeepFace' %}py{% endif %}" style="border-color: {{ tech.color }}">{{ tech.name }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="project-meta">
+                        {% if project.architecture %}
+                        <div class="meta-item">Architecture<span>{{ project.architecture }}</span></div>
+                        {% endif %}
+                        {% if project.database_info %}
+                        <div class="meta-item">Base de données<span>{{ project.database_info }}</span></div>
+                        {% endif %}
+                        {% if project.github_url %}
+                        <div class="meta-item">Code source<span>Disponible 📂</span></div>
+                        {% endif %}
+                    </div>
+                    <div class="project-links">
+                        {% if project.github_url %}<a class="proj-btn" href="{{ project.github_url }}" target="_blank">🔗 GitHub</a>{% endif %}
+                        {% if project.demo_url %}<a class="proj-btn primary" href="{{ project.demo_url }}" target="_blank">▶ Voir en ligne</a>{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="section-badge">Services</div>
+    <h2 class="section-title">Ce que je propose</h2>
+    <div class="divider"></div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="--g:linear-gradient(90deg,var(--python),var(--python2))">
+        <div class="service-icon">🐍</div><div class="service-title">Développement Django</div>
+        <div class="service-desc">Applications web robustes avec Django, sessions, authentification, admin personnalisé et déploiement Render.</div>
+        <ul class="service-features"><li>API REST / DRF</li><li>Admin sur-mesure</li><li>JWT Auth</li><li>Déploiement Render</li></ul>
+      </div>
+      <div class="service-card reveal" style="--g:linear-gradient(90deg,var(--python),#8b5cf6)">
+        <div class="service-icon">🤖</div><div class="service-title">IA & Vision (Python)</div>
+        <div class="service-desc">Intégration de reconnaissance faciale et d'intelligence artificielle dans des applications Django avec OpenCV et DeepFace.</div>
+        <ul class="service-features"><li>OpenCV & DeepFace</li><li>Enrôlement biométrique</li><li>Rapports PDF/CSV</li><li>Sécurité des données</li></ul>
+      </div>
+      <div class="service-card reveal" style="--g:linear-gradient(90deg,#10b981,#06b6d4)">
+        <div class="service-icon">🗄️</div><div class="service-title">Conception BD</div>
+        <div class="service-desc">Modélisation JMerise, normalisation et optimisation de bases PostgreSQL et MySQL.</div>
+        <ul class="service-features"><li>Modélisation ERD/MCD</li><li>JMerise</li><li>Optimisation SQL</li><li>Migrations Django/Laravel</li></ul>
+      </div>
+      <div class="service-card reveal" style="--g:linear-gradient(90deg,#8b5cf6,#a855f7)">
+        <div class="service-icon">🔌</div><div class="service-title">APIs REST</div>
+        <div class="service-desc">APIs RESTful documentées et sécurisées avec Django REST Framework ou Laravel.</div>
+        <ul class="service-features"><li>Django REST / Laravel</li><li>Auth JWT</li><li>Documentation Swagger</li><li>Tests API</li></ul>
+      </div>
+      <div class="service-card reveal" style="--g:linear-gradient(90deg,#f59e0b,#ef4444)">
+        <div class="service-icon">🐘</div><div class="service-title">Développement Laravel</div>
+        <div class="service-desc">Applications PHP modernes avec Laravel : Eloquent ORM, migrations, gestion des rôles et interfaces responsives.</div>
+        <ul class="service-features"><li>Architecture MVC</li><li>Eloquent & migrations</li><li>Gestion des rôles</li><li>Bootstrap / Tailwind</li></ul>
+      </div>
+      <div class="service-card reveal" style="--g:linear-gradient(90deg,var(--python2),var(--python))">
+        <div class="service-icon">🛍️</div><div class="service-title">E-Commerce Backend</div>
+        <div class="service-desc">Applications e-commerce Django : panier sessions, gestion des commandes, paiements et intégration WhatsApp.</div>
+        <ul class="service-features"><li>Gestion produits/catégories</li><li>Panier sessions Django</li><li>Intégration WhatsApp</li><li>Déploiement production</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+    <div class="section-inner">
+        <div class="section-badge">Parcours</div>
+        <h2 class="section-title">Formation & Outils</h2>
+        <div class="divider"></div>
+        <div class="exp-grid reveal">
+            <div>
+                <h3 style="font-size:.9rem;font-weight:700;color:var(--python2);margin-bottom:1.25rem">🎓 Formation</h3>
+                <div class="timeline">
+                    {% for edu in educations %}
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-date">
+                            {% if edu.is_current %}Octobre {{ edu.start_year }} — En cours
+                            {% else %}Septembre {{ edu.start_year }} — Juillet {{ edu.end_year }}{% endif %}
+                        </div>
+                        <div class="tl-title">{{ edu.degree }}</div>
+                        <div class="tl-org">{{ edu.institution }} | {{ edu.location|default:site.location }}</div>
+                        <div class="tl-desc">{{ edu.description }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <h3 style="font-size:.9rem;font-weight:700;color:var(--python2);margin:1.75rem 0 1.1rem">🎯 Centres d'intérêt</h3>
+                <div class="tech-badges">
+                    <div class="badge">🎬 Cinéma & tech numérique</div>
+                    <div class="badge">🎮 Jeux vidéo & stratégie</div>
+                    <div class="badge">💻 Programmation</div>
+                    <div class="badge">🔍 Veille technologique</div>
+                </div>
+            </div>
+            <div>
+                <h3 style="font-size:.9rem;font-weight:700;color:var(--python2);margin-bottom:1.1rem">🛠️ Outils de développement</h3>
+                <div class="cert-grid">
+                    <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">VS Code / IntelliJ IDEA</div><div class="cert-org">Environnements de développement</div></div></div>
+                    <div class="cert-card"><div class="cert-icon">🗄️</div><div><div class="cert-name">MySQL Workbench</div><div class="cert-org">Administration base de données</div></div></div>
+                    <div class="cert-card"><div class="cert-icon">🚀</div><div><div class="cert-name">Git & GitHub</div><div class="cert-org">Versionnement de code</div></div></div>
+                    <div class="cert-card"><div class="cert-icon">☁️</div><div><div class="cert-name">Render</div><div class="cert-org">Hébergement & déploiement</div></div></div>
+                    <div class="cert-card"><div class="cert-icon">📐</div><div><div class="cert-name">JMerise</div><div class="cert-org">Modélisation base de données</div></div></div>
+                </div>
+                {% if site.cv_file %}
+                <div class="cv-download" onclick="window.location.href='{{ site.cv_file.url }}'">
+                    <div style="font-size:1.4rem">📄</div>
+                    <div class="cv-info">
+                        <div class="cv-title">Curriculum Vitae — {{ site.name|default:"AGBOKA FARID" }}</div>
+                        <div class="cv-sub">PDF · Développeur Backend Python · {{ site.location|default:"Lomé, Togo" }}</div>
+                    </div>
+                    <button class="cv-btn">&#11015; Télécharger</button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-inner">
+        <div class="section-badge">Contact</div>
+        <h2 class="section-title">Travaillons ensemble</h2>
+        <div class="divider"></div>
+        <div class="contact-grid reveal">
+            <div class="contact-info">
+                <h3>Un projet en tête ? 🐍</h3>
+                <p>Vous avez un projet backend, une application Django, une API ou un système à concevoir ? Contactez-moi, je serai ravi d'en discuter.</p>
+                <a class="contact-item" href="mailto:{{ site.email|default:'agbokafarid@gmail.com' }}">
+                    <div class="contact-item-icon">📧</div>
+                    <div><div class="contact-item-label">Email</div><div class="contact-item-val">{{ site.email|default:'agbokafarid@gmail.com' }}</div></div>
+                </a>
+                <a class="contact-item" href="https://wa.me/{{ site.whatsapp|default:'22891135172' }}" target="_blank">
+                    <div class="contact-item-icon">💬</div>
+                    <div><div class="contact-item-label">WhatsApp</div><div class="contact-item-val">{% if site.phone %}{{ site.phone }}{% else %}+228 91 13 51 72{% endif %}</div></div>
+                </a>
+                <a class="contact-item" href="{{ site.github|default:'https://github.com/faridxdev' }}" target="_blank">
+                    <div class="contact-item-icon">💻</div>
+                    <div><div class="contact-item-label">GitHub</div><div class="contact-item-val">{{ site.github|default:'github.com/faridxdev'|cut:'https://' }}</div></div>
+                </a>
+                <a class="contact-item" href="{{ site.linkedin|default:'#' }}" target="_blank">
+                    <div class="contact-item-icon">🔗</div>
+                    <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val">{{ site.linkedin|default:'linkedin.com/in/agbokafarid'|cut:'https://' }}</div></div>
+                </a>
+            </div>
+            <div class="contact-form">
+                <form method="post" action="{% url 'home' %}#contact" id="contact-form">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group"><label>Nom complet</label><input type="text" name="name" placeholder="Votre nom" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="votre@email.com" required></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Sujet</label>
+                        <select name="subject" required>
+                            {% for value, label in contact_form.subject.field.choices %}
+                                {% if value %}
+                                    <option value="{{ value }}">{{ label }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Décrivez votre projet ou votre proposition..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">✉ Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    setTimeout(() => {
+        animateCounter(document.getElementById('c1'), {{ site.projects_count|default:0 }}, '+');
+        animateCounter(document.getElementById('c2'), {{ site.technologies_count|default:0 }}, '+');
+        animateCounter(document.getElementById('c3'), {{ site.years_experience|default:0 }}, '+');
+    }, 500);
+
+    // Gestion AJAX du formulaire de contact (Évite le rechargement de la page)
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Feedback visuel pendant l'envoi
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>⏳</span> Envoi en cours...';
+
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(async response => {
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.message || 'Erreur lors de la validation');
+            }
+            return data;
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                alert(data.message);
+                form.reset();
+            }
+        })
+        .catch(error => {
+            console.error('Erreur Contact:', error);
+            alert(error.message);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        });
+    });
+</script>
+{% endblock %}
