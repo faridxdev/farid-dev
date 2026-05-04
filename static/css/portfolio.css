@@ -308,6 +308,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;tex
     .about-grid, .exp-grid, .contact-grid { 
         grid-template-columns: 1fr !important; 
         gap: 3rem;
+        justify-items: center; /* Centre les éléments de la grille horizontalement */
     }
 
     .services-grid {
