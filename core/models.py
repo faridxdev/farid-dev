@@ -40,7 +40,7 @@ class Skill(models.Model):
     category = models.CharField("Catégorie", max_length=20, choices=CATEGORY_CHOICES)
     percentage = models.PositiveIntegerField("Niveau (%)", default=70)
     icon = models.CharField("Icône (emoji/class)", max_length=50, blank=True)
-    color = models.CharField("Couleur hex", max_length=10, default="#3b82f6")
+    color = models.CharField("Couleur hex", max_length=255, default="#3b82f6")
     order = models.PositiveIntegerField("Ordre", default=0)
     is_featured = models.BooleanField("Mis en avant", default=False)
 
