@@ -8,6 +8,7 @@ class SiteSettings(models.Model):
     bio_short = models.TextField("Bio courte")
     bio_long = models.TextField("Bio complète")
     avatar = models.ImageField("Photo", upload_to='avatar/', blank=True)
+    favicon = models.ImageField("Favicon", upload_to='settings/', blank=True, help_text="Format ICO ou PNG (32x32)")
     email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True)
     location = models.CharField("Localisation", max_length=200, blank=True)
