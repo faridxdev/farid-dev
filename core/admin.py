@@ -5,7 +5,7 @@ from .models import SiteSettings, Skill, Education, Experience, Certification
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
     fieldsets = (
-        ('Identité', {'fields': ('name', 'title', 'tagline', 'avatar', 'is_available')}),
+        ('Identité', {'fields': ('name', 'title', 'tagline', 'avatar', 'favicon', 'is_available')}),
         ('Biographie', {'fields': ('bio_short', 'bio_long')}),
         ('Contact & Réseaux', {'fields': ('email', 'phone', 'whatsapp', 'github', 'linkedin', 'twitter')}),
         ('Fichiers', {'fields': ('cv_file',)}),
